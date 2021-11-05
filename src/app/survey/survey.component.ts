@@ -32,7 +32,7 @@ export class SurveyComponent implements OnInit {
       likeAtmos: false,
       likeDorm: false,
       likeSports: false,
-      howInterest: null,
+      howInterest: 0,
       recommend: null,
       raffle: [''],
       comments: ['']
