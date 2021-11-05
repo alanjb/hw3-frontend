@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Survey } from './survey';
 
 @Component({
   selector: 'survey-component',
@@ -13,25 +13,24 @@ export class SurveyComponent implements OnInit {
   serverUrl = "http://ec2-3-143-235-208.us-east-2.compute.amazonaws.com/SWE645SurveyService";
   surveysEndpoint = "/surveys";
   headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-  Recommend: string[] = ["Likely", "Very Likely", "Unlikely"];
+  Recommend = ["Likely", "Very Likely", "Unlikely"];
 
   constructor(public fb: FormBuilder, private http: HttpClient) {
     this.form = this.fb.group({
       firstName: [''],
       lastName: [''],
-      streetAddress: [''],
+      street: [''],
       city: [''],
       state: [''],
-      zipCode: [''],
-      telephone: [''],
+      zip: [''],
+      tel: [''],
       email: [''],
       date: [''],
       likeStudents: false,
       likeLocation: false,
       likeCampus: false,
-      likeAtmosphere: false,
-      likeDormRooms: false,
+      likeAtmos: false,
+      likeDorm: false,
       likeSports: false,
       howInterest: null,
       recommend: null,
@@ -43,86 +42,36 @@ export class SurveyComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit() {
-    let formData: any = new FormData();
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("firstName", this.form!.get('firstName').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("lastName", this.form!.get('lastName').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("streetAddress", this.form!.get('streetAddress').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("city", this.form!.get('city').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("state", this.form!.get('state').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("zipCode", this.form!.get('zipCode').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("telephone", this.form!.get('telephone').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("email", this.form!.get('email').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("date", this.form!.get('date').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("likeStudents", this.form!.get('likeStudents').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("likeLocation", this.form!.get('likeLocation').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("likeCampus", this.form!.get('likeCampus').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("likeAtmosphere", this.form!.get('likeAtmosphere').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("likeDormRooms", this.form!.get('likeDormRooms').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("likeSports", this.form!.get('likeAtmosphere').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("howInterest", this.form!.get('howInterest').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("recommend", this.form!.get('recommend').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("raffle", this.form!.get('raffle').value);
-
-    // @ts-ignore: Object is possibly 'null'.
-    formData.append("comments", this.form!.get('comments').value);
-
-    // for (var key of formData.entries()) {
-    //   console.log(key[0] + ', ' + key[1]);
-    // }
+    const object: Survey = {
+      firstName: this.form.get('firstName')?.value,
+      lastName: this.form.get('lastName')?.value,
+      street: this.form.get('street')?.value,
+      city: this.form.get('city')?.value,
+      state: this.form.get('state')?.value,
+      zip: this.form.get('zip')?.value,
+      tele: this.form.get('tel')?.value,
+      email: this.form.get('email')?.value,
+      date: this.form.get('date')?.value,
+      likeStudents: this.form.get('likeStudents')?.value,
+      likeLocation: this.form.get('likeLocation')?.value,
+      likeCampus: this.form.get('likeCampus')?.value,
+      likeAtmos: this.form.get('likeAtmos')?.value,
+      likeDorm: this.form.get('likeDorm')?.value,
+      likeSports: this.form.get('likeSports')?.value,
+      howInterest: this.form.get('howInterest')?.value,
+      recommend: this.form.get('recommend')?.value === 'Likely' ? 0 : (this.form!.get('recommend')?.value === 'Very Likely') ? 1 : 2,
+      raffle: this.form.get('raffle')?.value,
+      comments: this.form.get('comments')?.value
+    };
 
     this.http
-      .post(this.serverUrl + this.surveysEndpoint, formData, { headers: this.headers })
+      .post(this.serverUrl + this.surveysEndpoint, object, { headers: this.headers })
       .subscribe(
       (response) => console.log(response),
       (error) => console.log(error))
-
-    // console.log(this.form.controls.recommends.setValue)
   }
 
-   // Choose city using select dropdown
-  changeRecommend(e: any) {
-    this.form.controls.recommends.setValue(e.target.value, {
-      onlySelf: true
-    })
-  }
-
-  getSurvey = () => {
+  getSurvey(){
     this.http
       .get(this.serverUrl + this.surveysEndpoint + "/" + 1, { headers: this.headers })
     .subscribe(
