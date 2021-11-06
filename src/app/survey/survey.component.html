@@ -1,16 +1,10 @@
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <span class="toolbar-logo">Welcome</span>
-</div>
-
-<!-- Content -->
 <div class="content" role="main">
   <div class="container-no-color">
-    <h2>GMU Student Survey</h2>
+    <h2>GMU Student Survey - General</h2>
     <p>Respond for a chance to win a free movie ticket in our raffle!</p>
   </div>
   <div class="container">
-    <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form  [formGroup]="form" (ngSubmit)="submitSurvey()">
       <h2>Contact Information</h2>
       <div class="row">
         <div class="column-small">
@@ -151,6 +145,7 @@
       </div>
 
       <div class="row">
+        <input type="submit" value="Cancel">
         <input type="submit" value="Submit">
       </div>
     </form>

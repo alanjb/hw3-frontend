@@ -41,7 +41,7 @@ export class SurveyComponent implements OnInit {
 
   ngOnInit() { }
 
-  onSubmit() {
+  submitSurvey() {
     const object: Survey = {
       firstName: this.form.get('firstName')?.value,
       lastName: this.form.get('lastName')?.value,

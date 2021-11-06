@@ -123,19 +123,6 @@ p {
   flex: 1;
 }
 
-.toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  background-color: #004d26;
-  color: white;
-  font-weight: 600;
-}
-
 .content {
   display: flex;
   margin: 82px auto 32px;
@@ -145,6 +132,3 @@ p {
   align-items: center;
 }
 
-.toolbar-logo{
-  margin-left: 15px;
-}
