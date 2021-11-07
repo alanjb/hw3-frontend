@@ -1,0 +1,11 @@
+.surveys-container {
+  margin-top: 60px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.survey-card {
+  margin-bottom: 10px;
+  border: 1px solid #ffffff;
+  padding: 5px;
+}

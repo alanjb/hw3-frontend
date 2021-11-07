@@ -1,0 +1,43 @@
+<div class="surveys-container">
+  <h2>Recorded Surveys</h2>
+  <div class="survey-card" *ngFor="let s of recordedSurveys">
+    <b>id: </b>
+    {{ s.id }},
+    <b>first name: </b>
+    {{ s.firstName }},
+    <b>last name: </b>
+    {{ s.lastName }},
+    <b>street name: </b>
+    {{ s.street }},
+    <b>city: </b>
+    {{ s.city }},
+    <b>state: </b>
+    {{ s.state }},
+    <b>zip: </b>
+    {{ s.zip }},
+    <b>telephone: </b>
+    {{ s.tele }},
+    <b>email: </b>
+    {{ s.email }},
+    <b>date: </b>
+    {{ s.date }},
+    <b>Like Students: </b>
+    {{ s.likeStudents }},
+    <b>Like Location: </b>
+    {{ s.likeLocation }},
+    <b>Like Atmosphere: </b>
+    {{ s.likeAtmos }},
+    <b>Like Dorms: </b>
+    {{ s.likeDorm }},
+    <b>Like Sports: </b>
+    {{ s.likeSports }},
+    <b>How became interested: </b>
+    {{ s.howInterest }},
+    <b>Would recommend: </b>
+    {{ s.recommend }},
+    <b>Raffle entries:</b>
+    {{ s.raffle }},
+    <b>Comments: </b>
+    {{ s.comments }},
+  </div>
+</div>

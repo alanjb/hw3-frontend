@@ -78,12 +78,4 @@ export class SurveyComponent implements OnInit {
     (response) => console.log(response),
     (error) => console.log(error))
   }
-
-  getSurveys = () => {
-    this.http
-    .get(this.serverUrl + this.surveysEndpoint, { headers: this.headers })
-    .subscribe(
-    (response) => console.log(response),
-    (error) => console.log(error))
-  }
 }

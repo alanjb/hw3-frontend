@@ -1,13 +1,6 @@
-html {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-}
 
 h2 {
-  color:#004d26;
+  color:#ffffff;
   font-size:1.45rem;
   line-height:1.81rem;
   font-weight:600;
@@ -95,6 +88,18 @@ input[type=submit]:hover {
   }
 }
 
+.form-title {
+  color: #2c2d2b;
+}
+
+.subtitle {
+  color: #ffffff;
+}
+
+.survey-container {
+  margin-top: 20px;
+}
+
 /* Below - boilerplate Angular css */
 
 :host {
@@ -125,9 +130,6 @@ p {
 
 .content {
   display: flex;
-  margin: 82px auto 32px;
-  padding: 0 16px;
-  max-width: 960px;
   flex-direction: column;
   align-items: center;
 }

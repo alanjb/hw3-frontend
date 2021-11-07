@@ -1,11 +1,11 @@
-<div class="content" role="main">
+<div class="survey-container content">
   <div class="container-no-color">
-    <h2>GMU Student Survey - General</h2>
-    <p>Respond for a chance to win a free movie ticket in our raffle!</p>
+    <h2>GMU Student Survey</h2>
+    <p class="subtitle">Respond for a chance to win a free movie ticket in our raffle!</p>
   </div>
   <div class="container">
     <form  [formGroup]="form" (ngSubmit)="submitSurvey()">
-      <h2>Contact Information</h2>
+      <h2 class="form-title">Contact Information</h2>
       <div class="row">
         <div class="column-small">
           <label for="fname">First Name</label>
@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <h2>Please answer the following questions</h2>
+      <h2 class="form-title">Please answer the following questions</h2>
 
       <div class="row"> What do you like most about the campus?
         <div class="row last">
@@ -150,10 +150,4 @@
       </div>
     </form>
   </div>
-</div>
-
-<div>
-  <button (click)="getSurvey()">Get a survey</button>
-
-  <button (click)="getSurveys()">View all recorded surveys</button>
 </div>

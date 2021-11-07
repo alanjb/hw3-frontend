@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: '../dashboard/dashboard.component.html',
   styleUrls: ['../dashboard/dashboard.component.css']
 })
-export class DashboardComponent  {
+export class DashboardComponent {
   title = "dashboard";
 
   constructor(
