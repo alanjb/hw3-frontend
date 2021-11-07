@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Survey } from '../survey';
 
 @Component({
   selector: 'surveys-component',
@@ -19,8 +18,35 @@ export class SurveysComponent implements OnInit {
     this.http
       .get(this.serverUrl + this.surveysEndpoint, { headers: this.headers })
       .subscribe(surveys => {
+        let recordedSurveysResponse: any;
+        recordedSurveysResponse = surveys;
 
-        this.recordedSurveys = surveys;
+        recordedSurveysResponse.forEach((e: any) => {
+          if (e.howInterest === 0) {
+            e.howInterest = 'friend';
+          }
+          else if (e.howInterest === 1) {
+            e.howInterest = 'television';
+          }
+          else if (e.howInterest === 2) {
+            e.howInterest = 'internet';
+          }
+          else if(e.howInterest === 3){
+            e.howInterest = 'other';
+          }
+
+          if (e.recommend === 0) {
+            e.recommend = 'Likely';
+          }
+          else if (e.recommend === 1) {
+            e.recommend = 'Very Likely';
+          }
+          else if (e.recommend === 2){
+            e.recommend = 'UnLikely';
+          }
+
+          this.recordedSurveys = recordedSurveysResponse;
+        });
       }),
       (error: any) => console.log(error);
   }

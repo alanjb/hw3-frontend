@@ -67,15 +67,7 @@ export class SurveyComponent implements OnInit {
     this.http
       .post(this.serverUrl + this.surveysEndpoint, object, { headers: this.headers })
       .subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error))
-  }
-
-  getSurvey(){
-    this.http
-      .get(this.serverUrl + this.surveysEndpoint + "/" + 1, { headers: this.headers })
-    .subscribe(
-    (response) => console.log(response),
-    (error) => console.log(error))
+      (response) => alert('Success! Survey submitted'),
+      (error) => alert('Error! There was an issue submitting your survey response'))
   }
 }
