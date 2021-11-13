@@ -12,7 +12,7 @@ Building an image from the frontend application
 Running a docker container from this image locally
 Deploying the containerized application on Kubernetes using Rancher
 
-## Start development server
+## Start local development server
 Open a terminal and change directories into hw3-frontend root directory and run `npm run start` to start the application. Visit `http://localhost:4200/` to view the application.
 
 ## Build a docker image from the source code using the Dockerfile

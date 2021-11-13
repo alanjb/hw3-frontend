@@ -1,11 +1,16 @@
-#stage 1
-FROM node:12.16.1-alpine As builder
-WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
+# Stage 0, "build-stage", based on Node.js, to build and compile the frontend to a distribution directory that will copy its contents into the nginx html folder
+FROM node:14.15.5 as build
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-COPY . .
-RUN npm run build --prod
+COPY . ./
+ARG configuration=production
+RUN npm run build -- --outputPath=./dist/out --configuration $configuration
 
-#stage 2
-FROM nginx:1.15.8-alpine
-COPY --from=builder /usr/src/app/dist/hw3-frontend/ /usr/share/nginx/html
+#Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
+FROM nginx
+COPY --from=build /app/dist/out/ /usr/share/nginx/html
+COPY /nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
