@@ -9,9 +9,13 @@
       <div class="row">
         <div class="column-small">
           <label for="fname">First Name</label>
+
         </div>
         <div class="column-large">
-          <input type="text" id="firstname" name="firstName" placeholder="First Name" formControlName="firstName">
+          <input type="text" id="firstname" name="firstName" placeholder="First Name" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First name is required</div>
+          </div>
         </div>
       </div>
       <div class="row last">
@@ -19,15 +23,22 @@
           <label for="lname">Last Name</label>
         </div>
         <div class="column-large">
-          <input type="text" id="lastname" name="lastName" placeholder="Last Name" formControlName="lastName">
+          <input type="text" id="lastname" name="lastName" placeholder="Last Name" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last name is required</div>
+          </div>
         </div>
       </div>
+
       <div class="row">
         <div class="column-small">
           <label for="lname">Street Address</label>
         </div>
         <div class="column-large">
-          <input type="text" id="streetAddress" name="streetAddress" placeholder="Street Address" formControlName="street">
+          <input type="text" id="streetAddress" name="streetAddress" placeholder="Street Address" formControlName="street" [ngClass]="{ 'is-invalid': submitted && f.street.errors }">
+          <div *ngIf="submitted && f.street.errors" class="invalid-feedback">
+            <div *ngIf="f.street.errors.required">Street Address is required</div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -35,7 +46,10 @@
           <label for="lname">City</label>
         </div>
         <div class="column-large">
-          <input type="text" id="city" name="city" placeholder="City" formControlName="city">
+          <input type="text" id="city" name="city" placeholder="City" formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+          <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+            <div *ngIf="f.city.errors.required">City is required</div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -43,7 +57,10 @@
           <label for="lname">State</label>
         </div>
         <div class="column-large">
-          <input type="text" id="state" name="state" placeholder="State" formControlName="state">
+          <input type="text" id="state" name="state" placeholder="State" formControlName="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+          <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+            <div *ngIf="f.state.errors.required">State is required</div>
+          </div>
         </div>
       </div>
       <div class="row last">
@@ -51,7 +68,10 @@
           <label for="lname">Zip Code</label>
         </div>
         <div class="column-large">
-          <input type="text" id="zip" name="zip" placeholder="Zip Code" formControlName="zip">
+          <input type="text" id="zip" name="zip" placeholder="Zip Code" formControlName="zip" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }">
+          <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+            <div *ngIf="f.zip.errors.required">Zip Code is required</div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -59,7 +79,10 @@
           <label for="lname">Telephone Number</label>
         </div>
         <div class="column-large">
-          <input type="text" id="tel" name="tel" placeholder="Telephone" formControlName="tel">
+          <input type="text" id="tel" name="tel" placeholder="Telephone" formControlName="tel" [ngClass]="{ 'is-invalid': submitted && f.tel.errors }">
+          <div *ngIf="submitted && f.tel.errors" class="invalid-feedback">
+            <div *ngIf="f.tel.errors.required">Telephone is required</div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -67,16 +90,26 @@
           <label for="lname">Email</label>
         </div>
         <div class="column-large">
-          <input type="text" id="email" name="email" placeholder="Email" formControlName="email">
+          <input type="text" id="email" name="email" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email is invalid</div>
+          </div>
         </div>
+
       </div>
       <div class="row last-large">
         <div class="column-small">
           <label for="lname">Date</label>
         </div>
         <div class="column-large">
-          <input type="text" id="date" name="date" placeholder="mm/dd/yyyy" formControlName="date">
+          <input type="date" id="date" name="date" placeholder="mm/dd/yyyy" formControlName="date" [ngClass]="{ 'is-invalid': submitted && f.date.errors }">
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.date.errors.required">Date is required</div>
+            <div *ngIf="f.date.errors.email">Date is invalid</div>
+          </div>
         </div>
+
       </div>
 
       <h2 class="form-title">Please answer the following questions</h2>
