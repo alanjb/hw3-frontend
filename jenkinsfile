@@ -28,7 +28,7 @@ pipeline {
             }
         }
 
-        stage("Deploying to Rancher"){
+        stage("Deploying to Rancher cluster"){
             steps {
                 sh 'kubectl set image deployment/hw3-deploy container-0=alanboyce2/hw3-frontend:${BUILD_NUMBER}'
             }
