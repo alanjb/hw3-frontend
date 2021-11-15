@@ -6,7 +6,7 @@ export interface Survey {
   city?: string;
   state?: string;
   zip?: string
-  tele?: string;
+  tel?: string;
   email?: string;
   date?: string;
   likeStudents?: boolean;

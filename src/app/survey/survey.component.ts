@@ -56,7 +56,7 @@ export class SurveyComponent implements OnInit {
       city: this.form.get('city')?.value,
       state: this.form.get('state')?.value,
       zip: this.form.get('zip')?.value,
-      tele: this.form.get('tel')?.value,
+      tel: this.form.get('tel')?.value,
       email: this.form.get('email')?.value,
       date: this.form.get('date')?.value,
       likeStudents: this.form.get('likeStudents')?.value,
@@ -71,14 +71,14 @@ export class SurveyComponent implements OnInit {
       comments: this.form.get('comments')?.value
     };
 
-    // this.http
-    //   .post(this.serverUrl + this.surveysEndpoint, object, { headers: this.headers })
-    //   .subscribe(
-    //     response => {
-    //       alert('Success! Survey submitted');
-    //       this.onReset();
-    //     },
-    //   (error) => alert('Error! There was an issue submitting your survey response'))
+    this.http
+      .post(this.serverUrl + this.surveysEndpoint, object, { headers: this.headers })
+      .subscribe(
+        response => {
+          alert('Success! Survey submitted');
+          this.onReset();
+        },
+      (error) => alert('Error! There was an issue submitting your survey response'))
   }
 
   onReset(): void {

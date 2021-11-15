@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry = "alanboyce2/hw3"
+        registry = "alanboyce2/hw3-frontend"
         registryCredential = 'DOCKERHUB_ACCESS_KEY'
         dockerImage = ''
     }
