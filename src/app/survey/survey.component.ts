@@ -11,7 +11,7 @@ import { Survey } from './survey';
 export class SurveyComponent implements OnInit {
   form: FormGroup;
   submitted = false;
-  serverUrl = "http://ec2-3-143-235-208.us-east-2.compute.amazonaws.com/SWE645SurveyService"; //need to update this!
+  serverUrl = "http://3.144.158.111:32767/SWE645SurveyService"; //need to update this!
   surveysEndpoint = "/surveys";
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   Recommend = ["Likely", "Very Likely", "Unlikely"];

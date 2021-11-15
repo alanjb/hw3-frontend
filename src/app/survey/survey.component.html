@@ -104,7 +104,7 @@
         </div>
         <div class="column-large">
           <input type="date" id="date" name="date" placeholder="mm/dd/yyyy" formControlName="date" [ngClass]="{ 'is-invalid': submitted && f.date.errors }">
-          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
             <div *ngIf="f.date.errors.required">Date is required</div>
             <div *ngIf="f.date.errors.email">Date is invalid</div>
           </div>
